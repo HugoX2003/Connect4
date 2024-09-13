@@ -1,6 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { TableroComponent } from './app/tablero/tablero.component';
 
-bootstrapApplication(AppComponent, appConfig)
+bootstrapApplication(TableroComponent)
   .catch((err) => console.error(err));

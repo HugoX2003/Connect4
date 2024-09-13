@@ -1,0 +1,32 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-900">
+  <!-- Tablero -->
+  <div class="grid grid-cols-7 gap-2 bg-blue-600 p-4 rounded-lg shadow-lg">
+    <div *ngFor="let column of juegoService.board(); let colIndex = index"
+         class="flex flex-col-reverse items-center cursor-pointer"
+         (click)="handleColumnClick(colIndex)">
+      <div *ngFor="let cell of column; let rowIndex = index"
+           class="w-20 h-20 border-4 border-gray-500 rounded-full flex items-center justify-center"
+           [ngClass]="{
+             'bg-red-500': cell === 'Red',
+             'bg-yellow-500': cell === 'Yellow',
+             'fall-animation': cell !== ''
+           }">
+      </div>
+    </div>
+  </div>
+
+  <!-- Controles y contador -->
+  <div class="ml-6 flex flex-col space-y-4 items-center">
+    <!-- Botones -->
+    <div class="flex flex-col space-y-2">
+      <button (click)="resetGame()" class="bg-gray-800 text-white px-4 py-2 rounded">Reiniciar Partida</button>
+      <button (click)="resetScore()" class="bg-red-500 text-white px-4 py-2 rounded">Resetear Puntajes</button>
+    </div>
+
+    <!-- Contador -->
+    <div class="mt-6 text-white">
+      <p>Victorias Roja: {{ juegoService.score().red }}</p>
+      <p>Victorias Amarilla: {{ juegoService.score().yellow }}</p>
+    </div>
+  </div>
+</div>
