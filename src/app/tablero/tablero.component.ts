@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { JuegoService } from "../juego.service";
 import {NgIf, NgFor, NgClass} from "@angular/common";
 
